@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ session }: HeroSectionProps) {
-  console.log("🚀 ~ HeroSection ~ session:", session)
+  // console.log("🚀 ~ HeroSection ~ session:", session)
   const { t } = useTranslation();
 
   return (

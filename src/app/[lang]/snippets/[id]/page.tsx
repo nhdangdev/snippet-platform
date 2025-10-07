@@ -6,7 +6,7 @@ import CodeBlock from "@/components/CodeBlock";
 import DeleteButton from "@/components/DeleteButton";
 import { CopyCodeButton, CopyLinkButton } from "@/components/CopyButtons";
 import { Eye } from "lucide-react";
-
+import { Image } from '@/components/ui/Image'
 
 export default async function SnippetDetailPage(props: {
   params: Promise<{ id: string }>;
@@ -131,9 +131,9 @@ export default async function SnippetDetailPage(props: {
               <h3 className="font-semibold text-gray-900 mb-4">Author</h3>
               <div className="flex items-center space-x-3 mb-4">
                 {snippet.author?.avatar && (
-                  <img
-                    src={snippet.author.avatar}
-                    alt={snippet.author.name}
+                  <Image
+                    src={snippet.author.avatar || null}
+                    alt={snippet.author.name || 'Avatar'}
                     className="w-12 h-12 rounded-full"
                   />
                 )}

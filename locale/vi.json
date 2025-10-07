@@ -30,7 +30,23 @@
   "signOut": "Đăng xuất",
   "browse_code_snippets": "Các đoạn mã",
   "found": "tìm thấy",
-    "getStarted": "Bắt đầu",
-      "back_to_home":"Về trang chủ"
-
+  "getStarted": "Bắt đầu",
+  "back_to_home": "Về trang chủ",
+  "profile_title": "Hồ sơ",
+  "profile_edit": "Chỉnh sửa hồ sơ",
+  "profile_stats_snippets": "Đoạn mã",
+  "profile_stats_views": "Lượt xem",
+  "profile_stats_likes": "Thích",
+  "profile_stats_joined": "Tham gia",
+  "profile_tabs_snippets": "Đoạn mã của tôi",
+  "profile_tabs_settings": "Cài đặt",
+  "profile_form_username": "Tên người dùng",
+  "profile_form_name": "Tên hiển thị",
+  "profile_form_bio": "Tiểu sử",
+  "profile_form_email": "Email",
+  "profile_form_save": "Lưu thay đổi",
+  "profile_empty_title": "Chưa có đoạn mã nào",
+  "profile_empty_description": "Bắt đầu chia sẻ code của bạn với cộng đồng",
+  "profile_update_success": "Cập nhật hồ sơ thành công",
+  "profile_update_error": "Cập nhật hồ sơ thất bại"
 }

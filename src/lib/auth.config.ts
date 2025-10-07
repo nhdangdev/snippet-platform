@@ -59,7 +59,7 @@ export const authConfig: NextAuthConfig = {
         token.email = user.email;
         token.name = user.name;
         token.picture = user.image;
-        console.log('🎫 JWT created for:', user.email);
+        // console.log('JWT created for:', user.email);
       }
       return token;
     },
@@ -69,7 +69,7 @@ export const authConfig: NextAuthConfig = {
         session.user.email = token.email as string;
         session.user.name = token.name as string;
         session.user.image = token.picture as string;
-        console.log(' Session created for:', session.user.email);
+        // console.log(' Session created for:', session.user.email);
       }
       return session;
     },

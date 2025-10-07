@@ -31,5 +31,22 @@
   "browse_code_snippets": "Browse Code Snippets",
   "found": "found",
   "getStarted": "Get Started",
-  "back_to_home":"Back To Home"
+  "back_to_home": "Back To Home",
+  "profile_title": "Profile",
+  "profile_edit": "Edit Profile",
+  "profile_stats_snippets": "Snippets",
+  "profile_stats_views": "Views",
+  "profile_stats_likes": "Likes",
+  "profile_stats_joined": "Joined",
+  "profile_tabs_snippets": "My Snippets",
+  "profile_tabs_settings": "Settings",
+  "profile_form_username": "Username",
+  "profile_form_name": "Display Name",
+  "profile_form_bio": "Bio",
+  "profile_form_email": "Email",
+  "profile_form_save": "Save Changes",
+  "profile_empty_title": "No snippets yet",
+  "profile_empty_description": "Start sharing your code with the community",
+  "profile_update_success": "Profile updated successfully",
+  "profile_update_error": "Failed to update profile"
 }

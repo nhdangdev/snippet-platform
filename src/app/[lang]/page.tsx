@@ -58,7 +58,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
                   </Link>
                   <Link
                     href={`${lang}/auth/signup`}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                    className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-700 hover:text-white"
                   >
                     {t.signUp}
                   </Link>
