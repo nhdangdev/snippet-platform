@@ -1,27 +1,6 @@
-import bcrypt from 'bcryptjs';
 import type { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-
-const users = [
-  {
-    id: '1',
-    name: 'Test User',
-    email: 'test@example.com',
-    password: '$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u',
-  },
-  {
-    id: '2',
-    name: 'Test User 2',
-    email: 'test2@example.com',
-    password: '$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u',
-  },
-  {
-    id: '3',
-    name: 'Test User 3',
-    email: 'test3@example.com',
-    password: '$2a$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u',
-  },
-];
+import { db } from '@/lib/db';
 
 export const authConfig: NextAuthConfig = {
   pages: {
@@ -34,41 +13,41 @@ export const authConfig: NextAuthConfig = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        console.log('🚀 ~ [AUTH] Authorize called');
-        console.log('🚀 ~ Email:', credentials?.email);
-
+        console.log(' [AUTH] Authorize called');
+        console.log(' Email:', credentials?.email);
+        
         if (!credentials?.email || !credentials?.password) {
-          console.log('🚀 ~ [AUTH] Missing credentials');
-          throw new Error('Missing credentials');
+          console.log(' Missing credentials');
+          return null;
         }
 
-        const user = users.find((user) => user.email === credentials.email);
+        // Find user in mock database
+        const user = await db.user.findByEmail(credentials.email as string);
 
         if (!user) {
-          console.log('🚀 ~ [AUTH] User not found');
-          throw new Error('Invalid email or password');
+          console.log(' User not found');
+          return null;
         }
 
-        console.log('🚀 ~ [AUTH] User found');
+        console.log(' User found:', user.email);
 
-        const passwordMatch = await bcrypt.compare(
-          credentials.password as string,
-          user.password
-        );
+        // TODO: Use bcrypt.compare when integrating real database
+        const isValid = credentials.password === user.password;
 
-        console.log('🚀 ~ [AUTH] Password match:', passwordMatch);
+        console.log('🔑 Password match:', isValid);
 
-        if (!passwordMatch) {
-          console.log('🚀 ~ [AUTH] Wrong password');
-          throw new Error('Invalid email or password');
+        if (!isValid) {
+          console.log(' Invalid password');
+          return null;
         }
 
-        console.log('🚀 ~ [AUTH] Login successful');
+        console.log(' Login successful!');
 
         return {
           id: user.id,
           email: user.email,
           name: user.name,
+          image: user.avatar,
         };
       },
     }),
@@ -79,16 +58,18 @@ export const authConfig: NextAuthConfig = {
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
-        console.log('🚀 ~ [JWT] Token created:', { id: user.id, email: user.email });
+        token.picture = user.image;
+        console.log('🎫 JWT created for:', user.email);
       }
       return token;
     },
     async session({ session, token }) {
-      if (token) {
+      if (token && session.user) {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
         session.user.name = token.name as string;
-        console.log('🚀 ~ [SESSION] Session created:', session.user.email);
+        session.user.image = token.picture as string;
+        console.log(' Session created for:', session.user.email);
       }
       return session;
     },
@@ -96,7 +77,7 @@ export const authConfig: NextAuthConfig = {
   session: {
     strategy: 'jwt',
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || 'fallback-secret-key-for-development-only',
   debug: true,
   trustHost: true,
 };

@@ -6,12 +6,14 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+  "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
   {
     variants: {
       variant: {
         default: 'bg-black text-white hover:bg-black/80',
         primary: 'bg-[#ffde5a] text-[#ffde5a]-foreground hover:bg-[#ffde5a]/90',
+        logOut: 'bg-red-500 hover:bg-red-400',
+        copy: 'bg-black hover:bg-gray-700'
       },
       size: {
         default: 'h-10 px-4 py-2',

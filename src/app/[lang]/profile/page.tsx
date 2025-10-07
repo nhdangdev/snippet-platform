@@ -1,13 +1,14 @@
-import { auth } from '@/lib/auth';
-import { redirect } from 'next/navigation';
-import SignOutButton from '@/components/SignOutButton';
-import { Container } from '@/components/ui/Container';
+import SignOutButton from "@/components/SignOutButton";
+import { Container } from "@/components/ui/Container";
+import { Link } from "@/components/ui/Link";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
-export default async function Dashboard() {
+export default async function Profile() {
   const session = await auth();
 
   if (!session?.user) {
-    redirect('/auth/signin');
+    redirect("/auth/signin");
   }
 
   return (
@@ -30,9 +31,12 @@ export default async function Dashboard() {
 
       <main className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
         <div className='px-4 py-6 sm:px-0'>
+          <Link href="/" className="text-gray-600 hover:text-gray-900">
+            ← Back
+          </Link>
           <div className='bg-white shadow rounded-lg p-6'>
             <h2 className='text-2xl font-bold mb-4'>
-              Welcome to your Dashboard!
+              Welcome to your Profile!
             </h2>
             <div className='space-y-2'>
               <p className='text-gray-600'>

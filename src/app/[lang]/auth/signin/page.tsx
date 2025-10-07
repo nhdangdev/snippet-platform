@@ -3,11 +3,13 @@
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Link } from "@/components/ui/Link";
+import useTranslation from "@/hooks/useTranslation";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 export default function SignIn() {
+  const { t } = useTranslation()
   const router = useRouter();
   const searchParams = useSearchParams();
   const [error, setError] = useState<string>("");
@@ -57,7 +59,7 @@ export default function SignIn() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="md:mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -114,8 +116,9 @@ export default function SignIn() {
             <Button
               type="submit"
               disabled={loading}
+              className="w-full"
             >
-              {loading ? "Signing in..." : "Sign in"}
+              {loading ? `${t('signIn')}...` : t('signIn')}
             </Button>
           </div>
         </form>
@@ -125,7 +128,7 @@ export default function SignIn() {
             href='/'
             className='font-medium w-full flex justify-center hover:underline items-center text-blue-600 hover:text-blue-500'
           >
-            Back To Home
+            {t('back_to_home')}
           </Link>
           <p className="mb-2 font-semibold text-gray-800">
             Demo Credentials

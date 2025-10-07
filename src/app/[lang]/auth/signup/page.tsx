@@ -5,8 +5,10 @@ import { useRouter } from 'next/navigation';
 import { Link } from '@/components/ui/Link';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import useTranslation from '@/hooks/useTranslation';
 
 export default function SignUp() {
+  const {t} = useTranslation()
   const router = useRouter();
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState(false);
@@ -17,7 +19,6 @@ export default function SignUp() {
     setError('');
 
     const formData = new FormData(e.currentTarget);
-    console.log("🚀 ~ handleSubmit ~ formData:", formData)
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
@@ -63,7 +64,7 @@ export default function SignUp() {
     <div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-md w-full space-y-8'>
         <div>
-          <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
+          <h2 className='md:mt-6 text-center text-3xl font-extrabold text-gray-900'>
             Create your account
           </h2>
           <p className='mt-2 text-center text-sm text-gray-600'>
@@ -146,15 +147,16 @@ export default function SignUp() {
               type='submit'
               disabled={loading}
               variant='primary'
+              className='w-full'
             >
-              {loading ? 'Creating account...' : 'Sign up'}
+              {loading ? 'Creating account...' : t('signUp')}
             </Button>
           </div>
           <Link
             href='/'
             className='font-medium w-full flex justify-center hover:underline items-center text-blue-600 hover:text-blue-500'
           >
-            Back To Home
+            {t('back_to_home')}
           </Link>
         </form>
       </div>
