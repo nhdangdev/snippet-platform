@@ -15,7 +15,6 @@ export default async function SnippetDetailPage(props: {
   const session = await auth();
 
   const snippet = await db.snippet.findById(params.id);
-  console.log("🚀 ~ SnippetDetailPage ~ snippet:", snippet.author.avatar);
 
   if (!snippet) notFound();
 
