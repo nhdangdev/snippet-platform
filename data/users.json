@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "password",
+    "bio": "Full-stack developer passionate about clean code",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Test",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Test User 2",
+    "email": "test2@example.com",
+    "password": "password",
+    "bio": "Frontend developer | React enthusiast",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Test2",
+    "createdAt": "2024-01-02T00:00:00.000Z",
+    "updatedAt": "2024-01-02T00:00:00.000Z"
+  }
+]
