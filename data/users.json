@@ -6,8 +6,8 @@
     "password": "password",
     "bio": "Full-stack developer passionate about clean code",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Test",
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
   },
   {
     "id": "2",
@@ -16,7 +16,7 @@
     "password": "password",
     "bio": "Frontend developer | React enthusiast",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Test2",
-    "createdAt": "2024-01-02T00:00:00.000Z",
-    "updatedAt": "2024-01-02T00:00:00.000Z"
+    "createdAt": "2025-01-02T00:00:00.000Z",
+    "updatedAt": "2025-01-02T00:00:00.000Z"
   }
 ]

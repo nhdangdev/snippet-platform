@@ -142,9 +142,9 @@ export default async function Home({ params }: { params: { lang: string } }) {
                 <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded">
                   {snippet.language}
                 </span>
-                <div className="flex items-center space-x-4 text-gray-500">
-                  <span><Eye /> {snippet.views}</span>
-                  <span>by {snippet.author?.name}</span>
+                <div className="flex items-center justify-center gap-3 text-gray-500">
+                    <span><Eye className='size-4' /> {snippet.views}</span>
+                    <span>by {snippet.author?.name}</span>
                 </div>
               </div>
             </Link>

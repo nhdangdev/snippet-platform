@@ -2,7 +2,7 @@ import SignOutButton from "@/components/SignOutButton";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { getDictionary } from "@/lib/dictionaries";
-import { Plus, Search, User } from "lucide-react";
+import { Eye, Plus, Search, User } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -35,7 +35,7 @@ export default async function Dashboard({ params }: { params: { lang: string } }
                 href="/snippets/new"
                 className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-700"
               >
-                + New Snippet
+                + {t.newSnippet}
               </Link>
               <SignOutButton />
             </div>
@@ -55,19 +55,19 @@ export default async function Dashboard({ params }: { params: { lang: string } }
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-sm text-gray-600 mb-1">Total Snippets</div>
+            <div className="text-sm text-gray-600 mb-1">{t.totalSnippets}</div>
             <div className="text-3xl font-bold text-blue-600">
               {stats.totalSnippets}
             </div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-sm text-gray-600 mb-1">Total Views</div>
+            <div className="text-sm text-gray-600 mb-1">{t.totalViews}</div>
             <div className="text-3xl font-bold text-green-600">
               {stats.totalViews}
             </div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-sm text-gray-600 mb-1">Languages Used</div>
+            <div className="text-sm text-gray-600 mb-1">{t.languagesUsed}</div>
             <div className="text-3xl font-bold text-purple-600">
               {stats.languages.length}
             </div>
@@ -77,12 +77,12 @@ export default async function Dashboard({ params }: { params: { lang: string } }
         {/* My Snippets */}
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b flex items-center justify-between">
-            <h2 className="text-xl font-bold text-gray-900">My Snippets</h2>
+            <h2 className="text-xl font-bold text-gray-900">{t.profile_tabs_snippets}</h2>
             <Link
               href="/snippets/new"
               className="text-blue-600 hover:text-blue-700 text-sm font-medium"
             >
-              + Create New
+              + {t.create}
             </Link>
           </div>
 
@@ -123,7 +123,10 @@ export default async function Dashboard({ params }: { params: { lang: string } }
                             {snippet.complexity}
                           </span>
                         )}
-                        <span>👁️ {snippet.views} views</span>
+                        <div className='flex gap-1 justify-center items-center'>
+                          <Eye className="size-4" />
+                          <span>{snippet.views} {t.views}</span>
+                        </div>
                         <span>
                           {new Date(snippet.createdAt).toLocaleDateString()}
                         </span>
@@ -134,13 +137,13 @@ export default async function Dashboard({ params }: { params: { lang: string } }
                         href={`/snippets/${snippet.id}/edit`}
                         className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
                       >
-                        Edit
+                        {t.edit}
                       </Link>
                       <Link
                         href={`/snippets/${snippet.id}`}
                         className="px-3 py-1 text-sm bg-black text-white rounded hover:bg-gray-700"
                       >
-                        View
+                        {t.views}
                       </Link>
                     </div>
                   </div>
@@ -157,7 +160,7 @@ export default async function Dashboard({ params }: { params: { lang: string } }
             className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition"
           >
             <div className=" mb-2"><Search /></div>
-            <h3 className="font-semibold text-gray-900 mb-2">Browse Snippets</h3>
+            <h3 className="font-semibold text-gray-900 mb-2">{t.browse_code_snippets}</h3>
             <p className="text-sm text-gray-600">
               Discover snippets from other developers
             </p>
@@ -168,7 +171,7 @@ export default async function Dashboard({ params }: { params: { lang: string } }
             className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition"
           >
             <div className=" mb-2"><User /></div>
-            <h3 className="font-semibold text-gray-900 mb-2">My Profile</h3>
+            <h3 className="font-semibold text-gray-900 mb-2">{t.profile}</h3>
             <p className="text-sm text-gray-600">
               View your public profile page
             </p>
@@ -179,7 +182,7 @@ export default async function Dashboard({ params }: { params: { lang: string } }
             className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition"
           >
             <div className=" mb-2"><Plus /></div>
-            <h3 className="font-semibold text-gray-900 mb-2">Create Snippet</h3>
+            <h3 className="font-semibold text-gray-900 mb-2">{t.newSnippet}</h3>
             <p className="text-sm text-gray-600">
               Share your code with the community
             </p>

@@ -1,12 +1,12 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { db } from "@/lib/db";
-import { auth } from "@/lib/auth";
 import CodeBlock from "@/components/CodeBlock";
-import DeleteButton from "@/components/DeleteButton";
 import { CopyCodeButton, CopyLinkButton } from "@/components/CopyButtons";
+import DeleteButton from "@/components/DeleteButton";
+import { Image } from '@/components/ui/Image';
+import { auth } from "@/lib/auth";
+import { db } from "@/lib/db";
 import { Eye } from "lucide-react";
-import { Image } from '@/components/ui/Image'
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export default async function SnippetDetailPage(props: {
   params: Promise<{ id: string }>;
@@ -15,7 +15,7 @@ export default async function SnippetDetailPage(props: {
   const session = await auth();
 
   const snippet = await db.snippet.findById(params.id);
-  // console.log("🚀 ~ SnippetDetailPage ~ snippet:", snippet);
+  console.log("🚀 ~ SnippetDetailPage ~ snippet:", snippet.author.avatar);
 
   if (!snippet) notFound();
 
@@ -132,11 +132,13 @@ export default async function SnippetDetailPage(props: {
               <div className="flex items-center space-x-3 mb-4">
                 {snippet.author?.avatar && (
                   <Image
-                    src={snippet.author.avatar || null}
-                    alt={snippet.author.name || 'Avatar'}
                     className="w-12 h-12 rounded-full"
+                    src={snippet.author.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=Test'}
+                    alt={snippet.author.name || 'Avatar'}
+                    width={48}
+                    height={48}
                   />
-                )}
+                ) }
                 <div>
                   <div className="font-medium text-gray-900">
                     {snippet.author?.name}

@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Link } from "@/components/ui/Link";
 import useTranslation from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -129,7 +129,7 @@ export default function NewSnippet() {
       {/* Form */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Create New Snippet
+          {t('newSnippet')}
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -151,7 +151,7 @@ export default function NewSnippet() {
           {/* Title */}
           <div>
             <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-              Title *
+              {t('title')} *
             </label>
             <Input
               type="text"
@@ -166,7 +166,7 @@ export default function NewSnippet() {
           {/* Description */}
           <div>
             <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-              Description
+              {t('description')}
             </label>
             <textarea
               id="description"
@@ -280,13 +280,13 @@ export default function NewSnippet() {
               disabled={loading}
               className="min-w-[140px]"
             >
-              {loading ? "Creating..." : "Create Snippet"}
+              {loading ? `${t('create')}...` : t('create')}
             </Button>
             <Link
               href="/dashboard"
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium inline-flex items-center justify-center"
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium inline-flex items-center justify-center"
             >
-              Cancel
+              {t('cancel')}
             </Link>
           </div>
         </form>

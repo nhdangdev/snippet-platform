@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import useTranslation from "@/hooks/useTranslation";
 import { Snippet } from "@/lib/db/types";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
 
 const LANGUAGES = [
   "javascript",
@@ -48,6 +51,7 @@ interface EditSnippetFormProps {
 }
 
 export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
+  const { t } = useTranslation()
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -110,13 +114,13 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="text-xl font-bold text-black hover:text-blue-500">
-              {'</>'}  CodeSnippets
+              CodeSnippets
             </Link>
             <Link
               href={`/snippets/${snippet.id}`}
               className="text-gray-600 hover:text-gray-900"
             >
-              ← Cancel
+              ← {t('cancel')}
             </Link>
           </div>
         </div>
@@ -124,7 +128,7 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
 
       {/* Form */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Edit Snippet</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">{t('edit')} Snippet</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {error && (
@@ -139,15 +143,14 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
               htmlFor="title"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Title *
+              {t('title')} *
             </label>
-            <input
+            <Input
               type="text"
               id="title"
               name="title"
               required
               defaultValue={snippet.title}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
@@ -155,9 +158,8 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
           <div>
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Description
+              {t('description')}
             </label>
             <textarea
               id="description"
@@ -220,11 +222,10 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
                   key={topic}
                   type="button"
                   onClick={() => toggleTopic(topic)}
-                  className={`px-3 py-1 rounded-full text-sm border transition ${
-                    selectedTopics.includes(topic)
+                  className={`px-3 py-1 rounded-full text-sm border transition ${selectedTopics.includes(topic)
                       ? "bg-blue-600 text-white border-blue-600"
                       : "bg-white text-gray-700 border-gray-300 hover:border-blue-500"
-                  }`}
+                    }`}
                 >
                   {topic}
                 </button>
@@ -271,18 +272,17 @@ export default function EditSnippetForm({ snippet }: EditSnippetFormProps) {
 
           {/* Submit */}
           <div className="flex gap-4">
-            <button
+            <Button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
             >
-              {loading ? "Saving..." : "Save Changes"}
-            </button>
+              {loading ? "Saving..." : t('save')}
+            </Button>
             <Link
               href={`/snippets/${snippet.id}`}
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium"
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium"
             >
-              Cancel
+              {t('cancel')}
             </Link>
           </div>
         </form>

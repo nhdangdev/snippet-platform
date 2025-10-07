@@ -13,8 +13,8 @@
     "authorId": "1",
     "isPublic": true,
     "views": 42,
-    "createdAt": "2024-01-10T00:00:00.000Z",
-    "updatedAt": "2024-01-10T00:00:00.000Z"
+    "createdAt": "2025-01-10T00:00:00.000Z",
+    "updatedAt": "2025-01-10T00:00:00.000Z"
   },
   {
     "id": "2",
@@ -30,8 +30,8 @@
     "authorId": "2",
     "isPublic": true,
     "views": 156,
-    "createdAt": "2024-01-11T00:00:00.000Z",
-    "updatedAt": "2024-01-11T00:00:00.000Z"
+    "createdAt": "2025-01-11T00:00:00.000Z",
+    "updatedAt": "2025-01-11T00:00:00.000Z"
   },
   {
     "id": "3",
@@ -46,9 +46,9 @@
     "complexity": "O(n log n)",
     "authorId": "1",
     "isPublic": true,
-    "views": 90,
-    "createdAt": "2024-01-12T00:00:00.000Z",
-    "updatedAt": "2024-01-12T00:00:00.000Z"
+    "views": 144,
+    "createdAt": "2025-01-12T00:00:00.000Z",
+    "updatedAt": "2025-01-12T00:00:00.000Z"
   },
   {
     "id": "4",
@@ -65,8 +65,8 @@
     "authorId": "2",
     "isPublic": true,
     "views": 236,
-    "createdAt": "2024-01-13T00:00:00.000Z",
-    "updatedAt": "2024-01-13T00:00:00.000Z"
+    "createdAt": "2025-01-13T00:00:00.000Z",
+    "updatedAt": "2025-01-13T00:00:00.000Z"
   },
   {
     "id": "5",
@@ -82,7 +82,7 @@
     "authorId": "1",
     "isPublic": true,
     "views": 95,
-    "createdAt": "2024-01-14T00:00:00.000Z",
+    "createdAt": "2025-01-14T00:00:00.000Z",
     "updatedAt": "2025-10-07T00:21:32.247Z"
   }
 ]

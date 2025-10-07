@@ -17,9 +17,12 @@
   "welcomeBack": "Welcome back",
   "codeSnippets": "Code Snippets",
   "totalViews": "Total Views",
+  "totalSnippets": "Total Snippets",
+  "languagesUsed": "Languages Used",
   "popularLanguages": "Popular Languages",
   "latestSnippets": "Latest Snippets",
   "viewAll": "View All",
+  "views": "Views",
   "home": "Home",
   "snippets": "Snippets",
   "tags": "Tags",
@@ -48,5 +51,8 @@
   "profile_empty_title": "No snippets yet",
   "profile_empty_description": "Start sharing your code with the community",
   "profile_update_success": "Profile updated successfully",
-  "profile_update_error": "Failed to update profile"
+  "profile_update_error": "Failed to update profile",
+  "newSnippet" : "New Snippet",
+  "title": "Title",
+  "description" : "Description"
 }

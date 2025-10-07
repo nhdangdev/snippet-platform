@@ -17,9 +17,12 @@
   "welcomeBack": "Chào mừng trở lại",
   "codeSnippets": "Đoạn mã",
   "totalViews": "Tổng lượt xem",
+  "totalSnippets": "Tổng đoạn mã",
+  "languagesUsed": "Tổng ngôn ngữ đã sử dụng",
   "popularLanguages": "Ngôn ngữ phổ biến",
   "latestSnippets": "Những đoạn trích mới nhất",
   "viewAll": "Xem tất cả",
+  "views": "Lượt xem",
   "home": "Trang chủ",
   "snippets": "Đoạn mã",
   "tags": "Thẻ",
@@ -48,5 +51,8 @@
   "profile_empty_title": "Chưa có đoạn mã nào",
   "profile_empty_description": "Bắt đầu chia sẻ code của bạn với cộng đồng",
   "profile_update_success": "Cập nhật hồ sơ thành công",
-  "profile_update_error": "Cập nhật hồ sơ thất bại"
+  "profile_update_error": "Cập nhật hồ sơ thất bại",
+  "newSnippet": "Tạo đoạn mã mới",
+  "title": "Tiêu đề",
+  "description": "Mô tả"
 }

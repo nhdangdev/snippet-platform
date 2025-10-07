@@ -1,15 +1,17 @@
 'use client';
 
 import { Button } from '@/components/ui/Button';
+import useTranslation from '@/hooks/useTranslation';
 import { signOut } from 'next-auth/react';
 
 export default function SignOutButton() {
+  const { t } = useTranslation()
+
   return (
     <Button
-      className='w-[90px]'
       onClick={() => signOut({ callbackUrl: '/' })}
       variant='logOut'>
-      Sign Out
+      {t('signOut')}
     </Button>
   );
 }

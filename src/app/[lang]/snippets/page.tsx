@@ -47,7 +47,7 @@ export default async function BrowseSnippetsPage({
             {t.browse_code_snippets}
           </h1>
           <p className="text-gray-600">
-            {snippets.length} {t.snippets} {snippets.length !== 1 ? "s" : ""} {t.found}
+            {snippets.length} {t.snippets} {t.found}
           </p>
         </div>
 
